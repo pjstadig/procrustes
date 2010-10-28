@@ -2,6 +2,14 @@
   (:use [clojure.java.io :only [reader]])
   (:import [java.io PushbackReader]))
 
+(defn find-ns-form [code]
+  (first (for [x code :when (= 'ns (first x))]
+           x)))
+
+(defn but-ns-form [code]
+  (for [x code :when (not= 'ns (first x))]
+    x))
+
 (defn- read-code* [s code]
   (let [e (read s false ::eof)]
     (if (= ::eof e)

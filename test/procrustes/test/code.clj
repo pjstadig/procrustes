@@ -30,6 +30,16 @@
 
            (def- bar (delay (println \"Hello, World!\")))"))))))
 
+(deftest test-find-ns-name
+  (is (= 'procrustes.example
+         (find-ns-name (read-code (.getBytes "(ns procrustes.example
+             (:use [clojure.contrib.io :only [to-byte-array]]))
+
+           (defn foo [x]
+             (to-byte-array))
+
+           (def- bar (delay (println \"Hello, World!\")))"))))))
+
 (deftest test-but-ns-form
   (is (= '[(defn foo [x]
              (to-byte-array))

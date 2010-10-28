@@ -6,6 +6,9 @@
   (first (for [x code :when (= 'ns (first x))]
            x)))
 
+(defn find-ns-name [code]
+  (second (find-ns-form code)))
+
 (defn but-ns-form [code]
   (for [x code :when (not= 'ns (first x))]
     x))

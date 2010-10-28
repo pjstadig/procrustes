@@ -1,0 +1,17 @@
+# procrustes
+
+Metrics for your Clojure code.
+
+## Usage
+
+lein metrics
+
+## Installation
+
+Add as a development dependency in your project.clj.
+
+## License
+
+Copyright (C) 2010 Paul Stadig
+
+Distributed under the Eclipse Public License, the same as Clojure.

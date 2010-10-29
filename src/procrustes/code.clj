@@ -2,6 +2,16 @@
   (:use [clojure.java.io :only [reader]])
   (:import [java.io PushbackReader]))
 
+(defn- search-code* [code pred matches]
+  (if (pred code)
+    (conj matches code)
+    (if (and (coll? code)
+             (not (empty? code)))
+      (mapcat #(search-code* % pred matches) code))))
+
+(defn search-code [code pred]
+  (search-code* code pred []))
+
 (defn find-ns-form [code]
   (first (for [x code :when (= 'ns (first x))]
            x)))

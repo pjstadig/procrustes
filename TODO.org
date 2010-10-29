@@ -1,0 +1,7 @@
+* Possible Reports
+** Lines per file
+** Counts
+** Cyclomatic complexity
+** Dependent and dependency namespaces
+** Coverage?
+** Churn
